@@ -12,7 +12,8 @@ class DonasiController extends Controller
      */
     public function index()
     {
-        //
+        $donasis = Donasi::all();
+        return view('FiturDonasi.index', compact('donasis'));
     }
 
     /**
@@ -20,7 +21,7 @@ class DonasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('FiturDonasi.create');
     }
 
     /**
@@ -28,7 +29,17 @@ class DonasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tipe_donasi' => 'required',
+            'nama_donatur' => 'required',
+            'info_kontak' => 'required',
+            'deskripsi' => 'nullable',
+            'jumlah' => 'nullable|numeric',
+            'nama_barang' => 'nullable|string',
+        ]);
+
+        Donasi::create($request->all());
+        return redirect()->route('donasi.index')->with('success', 'Donasi berhasil dibuat!');
     }
 
     /**
@@ -36,7 +47,7 @@ class DonasiController extends Controller
      */
     public function show(Donasi $donasi)
     {
-        //
+        return view('FiturDonasi.show', compact('donasi'));
     }
 
     /**
@@ -44,7 +55,7 @@ class DonasiController extends Controller
      */
     public function edit(Donasi $donasi)
     {
-        //
+        return view('FiturDonasi.edit', compact('donasi'));
     }
 
     /**
@@ -52,7 +63,19 @@ class DonasiController extends Controller
      */
     public function update(Request $request, Donasi $donasi)
     {
-        //
+        {
+            $request->validate([
+                'tipe_donasi' => 'required',
+                'nama_donatur' => 'required',
+                'info_kontak' => 'required',
+                'deskripsi' => 'nullable',
+                'jumlah' => 'nullable|numeric',
+                'nama_barang' => 'nullable|string',
+            ]);
+    
+            $donasi->update($request->all());
+            return redirect()->route('donasi.index')->with('success', 'Donasi berhasil diperbarui!');
+        }
     }
 
     /**
@@ -60,6 +83,7 @@ class DonasiController extends Controller
      */
     public function destroy(Donasi $donasi)
     {
-        //
+        $donasi->delete();
+        return redirect()->route('donasi.index')->with('success', 'Donasi berhasil dihapus!');
     }
 }

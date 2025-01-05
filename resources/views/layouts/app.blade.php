@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
         <div class="container-fluid">
             <!-- Brand -->
-            <a class="navbar-brand text-primary fs-2" href="#">DONASIK</a>
+            <a class="navbar-brand text-primary fs-2" href="/dashboard">DONASIK</a>
     
             <!-- Toggler Button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,12 +25,7 @@
                 <ul class="navbar-nav ms-auto">
                     <!-- Beranda Link -->
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Beranda</a>
-                    </li>
-    
-                    <!-- Tentang Link -->
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Tentang</a>
+                        <a class="nav-link text-secondary" href="/dashboard">Beranda</a>
                     </li>
     
                     <!-- Login Button -->

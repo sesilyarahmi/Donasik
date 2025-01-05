@@ -12,7 +12,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('login');
+        return view('/Login/login');
     }
 
     public function login(Request $request)
@@ -40,10 +40,7 @@ class LoginController extends Controller
         return redirect('/');
     }
 
-    public function showDashboardForm()
-    {
-        return view('dashboard');
-    }
+    
     // /**
     //  * Display a listing of the resource.
     //  */

@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
     public function showRegistrationForm()
     {
-        return view('register');
+        return view('/Login/register');
     }
 
     public function store(Request $request)
@@ -30,9 +30,6 @@ class RegisterController extends Controller
             'password' => Hash::make($validated['password']),
             'phone' => $validated['phone'],
         ]);
-
-       
-
         return redirect()->route('login')->with('success', 'Akun berhasil dibuat.');;
     }
     

@@ -59,7 +59,7 @@
                     </div>
                     <h5 class="card-title fw-bold text-info">Daftar Volunteer</h5>
                     <p class="card-text text-muted">Bergabunglah sebagai volunteer untuk membantu mereka yang membutuhkan.</p>
-                    <a href="{{ url('/volunteer') }}" class="btn btn-info rounded-pill px-4">Daftar Sekarang</a>
+                    <a href='volunteer'class="btn btn-info rounded-pill px-4">Daftar Sekarang</a>
                 </div>
             </div>
         </div>

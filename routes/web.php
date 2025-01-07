@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonasiController; // Tambahkan ini untuk mengimpor DonationController
+use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\ZakatController;
 
 Route::get('/', function () {
     return view('homepage');
@@ -22,7 +24,6 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth',])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'showDashboardForm']);
-
     Route::get('/donasi', [DonasiController::class, 'index'])->name('donasi.index');
     Route::get('/donasi/create', [DonasiController::class, 'create'])->name('donasi.create');
     Route::post('/donasi', [DonasiController::class, 'store'])->name('donasi.store');
@@ -31,4 +32,10 @@ Route::middleware(['auth',])->group(function () {
     Route::put('/donasi/{donasi}', [DonasiController::class, 'update'])->name('donasi.update');
     Route::delete('/donasi/{donasi}', [DonasiController::class, 'destroy'])->name('donasi.destroy');
     // Route::resource('donais', DonasiController::class);
+    Route::resource('volunteer', VolunteerController::class);
+
+    
+    Route::resource('zakat', ZakatController::class);
+    Route::post('/zakat/{zakat}/pay', [ZakatController::class, 'pay'])->name('zakat.pay');
+
 });
